@@ -1,10 +1,10 @@
-import { MinusCircleFilled, EditTwoTone } from '@ant-design/icons';
+import { MinusCircleFilled, EditTwoTone, QuestionCircleOutlined } from '@ant-design/icons';
 import Card from 'antd/es/card/Card';
 import Button from 'antd/es/button/button';
 import Col from 'antd/es/col';
 import Row from 'antd/es/row';
 import { useState } from 'react';
-import { message } from 'antd';
+import { Popconfirm, message } from 'antd';
 import { Note } from 'types';
 import EditInput from 'components/EditInput';
 import Paragraph from 'components/Paragraph';
@@ -66,16 +66,25 @@ const NoteItem: React.FC<NoteItemProps> = ({ note, removeNote, id, editNote, not
           )}
         </Col>
         <div>
-          <Button
-            onClick={() => {
+          <Popconfirm
+            title="Delete"
+            icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
+            placement='bottomRight'
+            description="Are you sure to delete this note?"
+            onConfirm={() => {
               removeNote(id);
               message.success(`${editedDescription} has been deleted successfully`);
             }}
-            type='text'
-            danger
-            shape='circle'
-            icon={<MinusCircleFilled />}
-          />
+            okText="Yes"
+            cancelText="Cancel"
+          >
+            <Button
+              type='text'
+              danger
+              shape='circle'
+              icon={<MinusCircleFilled />}
+            />
+          </Popconfirm>
           <Button
             type='text'
             shape='circle'
