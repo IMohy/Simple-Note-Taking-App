@@ -14,7 +14,7 @@ body {
   flex-direction: column;
   justify-content: center;
   height: 100vh;
-  background-color: #0066ff1a;
+  background-image: url('/public/Assets/images/bg.svg') ;
 }
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
