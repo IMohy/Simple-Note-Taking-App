@@ -45,10 +45,8 @@ const NoteList: React.FC<NoteListProps> = ({ notes, setNotes }) => {
     setNotes(updatedNotes);
   };
   const handleSearch = (value: string) => {
-    if (value.trim() !== '') {
-      setSearchQuery(value);
-      setCurrentPage(1);
-    }
+    setSearchQuery(value.trim());
+    setCurrentPage(1);
   };
 
   const editNote = (noteId: string, newDescription: string) => {
