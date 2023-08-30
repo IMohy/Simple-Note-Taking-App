@@ -67,23 +67,18 @@ const NoteItem: React.FC<NoteItemProps> = ({ note, removeNote, id, editNote, not
         </Col>
         <div>
           <Popconfirm
-            title="Delete"
+            title='Delete'
             icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
             placement='bottomRight'
-            description="Are you sure to delete this note?"
+            description='Are you sure to delete this note?'
             onConfirm={() => {
               removeNote(id);
               message.success(`${editedDescription} has been deleted successfully`);
             }}
-            okText="Yes"
-            cancelText="Cancel"
+            okText='Yes'
+            cancelText='Cancel'
           >
-            <Button
-              type='text'
-              danger
-              shape='circle'
-              icon={<MinusCircleFilled />}
-            />
+            <Button type='text' danger shape='circle' icon={<MinusCircleFilled />} />
           </Popconfirm>
           <Button
             type='text'
