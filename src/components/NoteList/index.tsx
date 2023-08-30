@@ -44,8 +44,6 @@ const NoteList: React.FC<NoteListProps> = ({ notes, setNotes }) => {
 
     setNotes(updatedNotes);
   };
-  console.log({ notes });
-
   const handleSearch = (value: string) => {
     setSearchQuery(value);
     setCurrentPage(1);
