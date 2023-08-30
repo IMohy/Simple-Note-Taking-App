@@ -38,9 +38,10 @@ const NoteList: React.FC<NoteListProps> = ({ notes, setNotes }) => {
   const removeNote = (noteId: string) => {
     const updatedNotes = deleteNote(noteId);
     const remaining = displayedNotes.filter((note: Note) => note.id !== noteId);
-    if (!remaining?.length) {
+    if (!remaining?.length && notes?.lenght) {
       setCurrentPage(currentPage - 1);
     }
+    
     setNotes(updatedNotes);
   };
 
