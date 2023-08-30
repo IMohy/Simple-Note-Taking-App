@@ -14,7 +14,7 @@ const NoteInput: React.FC<NoteInputProps> = ({ addNote }) => {
 
   const onFinish = (values: { description: string }) => {
     const { description } = values;
-    addNote(description);
+    addNote(description.trim());
     form.resetFields();
     message.success(`${description} has been added to the note list successfully`);
   };
@@ -30,6 +30,15 @@ const NoteInput: React.FC<NoteInputProps> = ({ addNote }) => {
           {
             required: true,
             message: "You can't submit an empty note.",
+            whitespace: true,
+          },
+          {
+            validator: (_, value) => {
+              if (value && value.trim() === '') {
+                return Promise.reject();
+              }
+              return Promise.resolve();
+            },
           },
         ]}
       >
