@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/Simple-Taking-Notes-App/static/css/main.80218b7e.css",
-    "main.js": "/Simple-Taking-Notes-App/static/js/main.9ff1638e.js",
+    "main.js": "/Simple-Taking-Notes-App/static/js/main.f083d67a.js",
     "index.html": "/Simple-Taking-Notes-App/index.html",
     "main.80218b7e.css.map": "/Simple-Taking-Notes-App/static/css/main.80218b7e.css.map",
-    "main.9ff1638e.js.map": "/Simple-Taking-Notes-App/static/js/main.9ff1638e.js.map"
+    "main.f083d67a.js.map": "/Simple-Taking-Notes-App/static/js/main.f083d67a.js.map"
   },
   "entrypoints": [
     "static/css/main.80218b7e.css",
-    "static/js/main.9ff1638e.js"
+    "static/js/main.f083d67a.js"
   ]
 }
