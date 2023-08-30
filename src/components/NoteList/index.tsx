@@ -38,12 +38,13 @@ const NoteList: React.FC<NoteListProps> = ({ notes, setNotes }) => {
   const removeNote = (noteId: string) => {
     const updatedNotes = deleteNote(noteId);
     const remaining = displayedNotes.filter((note: Note) => note.id !== noteId);
-    if (!remaining?.length && notes?.lenght) {
-      setCurrentPage(currentPage - 1);
+    if (!remaining?.length) {
+      setCurrentPage(currentPage > 1 ? currentPage - 1 : 1);
     }
-    
+
     setNotes(updatedNotes);
   };
+  console.log({ notes });
 
   const handleSearch = (value: string) => {
     setSearchQuery(value);
