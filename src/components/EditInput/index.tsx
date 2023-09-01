@@ -1,5 +1,6 @@
 import Button from 'antd/es/button/button';
 import Input from 'antd/es/input/';
+import TextArea from 'antd/es/input/TextArea';
 import Space from 'antd/es/space';
 
 interface EditInputProps {
@@ -20,15 +21,30 @@ const EditInput: React.FC<EditInputProps> = ({
   className,
 }) => {
   return (
-    <Space.Compact className={className}>
-      <Input maxLength={64} allowClear value={value} onChange={onChange} />
-      <Button type='primary' onClick={onButtonClick}>
-        {buttonLabel ?? 'Submit'}
-      </Button>
-      <Button type='dashed' onClick={onBlur}>
-        Cancel
-      </Button>
-    </Space.Compact>
+    <Space direction='vertical'>
+
+      <Space.Compact className={className}>
+        <TextArea
+          className='editText'
+          style={{ width: "750px", marginTop: '1rem' }}
+          size='large'
+          rows={4}
+          placeholder='Edit your note'
+          value={value} onChange={onChange}
+          autoSize={{ minRows: 4, maxRows: 4 }}
+          allowClear
+        />
+
+      </Space.Compact>
+      <Space direction='horizontal' size={'large'}>
+        <Button type='primary' onClick={onButtonClick}>
+          {buttonLabel ?? 'Submit'}
+        </Button>
+        <Button type='dashed' onClick={onBlur}>
+          Cancel
+        </Button>
+      </Space>
+    </Space>
   );
 };
 

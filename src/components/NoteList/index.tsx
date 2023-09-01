@@ -14,7 +14,7 @@ interface NoteListProps {
 
 const NoteList: React.FC<NoteListProps> = ({ notes, setNotes }) => {
   const [currentPage, setCurrentPage] = useState<number>(1);
-  const [searchQuery, setSearchQuery] = useState<string>(''); // New state for search
+  const [searchQuery, setSearchQuery] = useState<string>('');
 
   const filteredNotes = useMemo(
     () =>
@@ -23,7 +23,7 @@ const NoteList: React.FC<NoteListProps> = ({ notes, setNotes }) => {
   );
 
   const showNotesOrPagination = Boolean(filteredNotes.length);
-  const notesPerPage = 5;
+  const notesPerPage = 2;
   const startIndex = (currentPage - 1) * notesPerPage;
   const endIndex = startIndex + notesPerPage;
   const displayedNotes = useMemo(

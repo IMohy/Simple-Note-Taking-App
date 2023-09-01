@@ -41,7 +41,7 @@ const NoteItem: React.FC<NoteItemProps> = ({ note, removeNote, id, editNote, not
   };
 
   return (
-    <Card hoverable style={{ padding: 0 }}>
+    <Card hoverable style={{ padding: 0, minHeight: '200px', maxHeight: '200px', overflow: 'hidden auto' }}>
       <Row className='noteItem'>
         <Col span={8}>
           {isEditing ? (
@@ -61,11 +61,14 @@ const NoteItem: React.FC<NoteItemProps> = ({ note, removeNote, id, editNote, not
               toolTipTitle={note.description}
               trigger='hover'
             >
-              {note.description}
+              {note.description.split('\n').map((line, index) => (
+
+                <p key={index}>{line}</p>
+              ))}
             </Paragraph>
           )}
         </Col>
-        <div>
+        {!editingNote ? <div>
           <Popconfirm
             title='Delete'
             icon={<QuestionCircleOutlined style={{ color: 'red' }} />}
@@ -86,7 +89,8 @@ const NoteItem: React.FC<NoteItemProps> = ({ note, removeNote, id, editNote, not
             icon={<EditTwoTone />}
             onClick={() => handleEdit(note.id, note.description)}
           />
-        </div>
+        </div> : null}
+
       </Row>
     </Card>
   );
