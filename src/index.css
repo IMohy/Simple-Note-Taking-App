@@ -82,10 +82,6 @@ code {
   width: var(--WebWidth);
 }
 
-.actionsButton{
-  position: absolute;
-  right: 10px
-}
 .noteTitle {
   margin: 0px !important;
   width: 650px;
